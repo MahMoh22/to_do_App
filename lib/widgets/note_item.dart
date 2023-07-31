@@ -23,7 +23,7 @@ class NoteItem extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Text(
                 'Note body or Note description, something to do.',
-                style: TextStyle(color: Colors.black.withOpacity(.5), fontSize: 20),
+                style: TextStyle(color: Colors.black.withOpacity(.5), fontSize: 18),
               ),
             ),
             trailing: IconButton(
@@ -36,7 +36,7 @@ class NoteItem extends StatelessWidget {
             padding: const EdgeInsets.only(right: 24),
             child: Text(
               '31/7/2023',
-              style: TextStyle(color: Colors.black.withOpacity(.5), fontSize: 20),
+              style: TextStyle(color: Colors.black.withOpacity(.5), fontSize: 16),
             ),
           ),
         ],
