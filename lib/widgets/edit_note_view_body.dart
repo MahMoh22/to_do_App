@@ -17,21 +17,28 @@ class EditNoteViewBody extends StatelessWidget {
               title: 'Edit Note',
               icon: Icons.check,
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             CustomTextField(
+              onSaved: (value) {},
               hint: 'Title',
             ),
             const SizedBox(
               height: 20,
             ),
             CustomTextField(
+              onSaved: (value) {},
               hint: 'content',
               maxLines: 5,
             ),
             const SizedBox(
               height: 50,
             ),
-            CustomButton(title: 'Update')
+            CustomButton(
+              title: 'Update',
+              onPressed: () {},
+            )
           ],
         ),
       ),
