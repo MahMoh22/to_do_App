@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo1/cubits/note_cubit/note_cubit.dart';
 import 'package:todo1/models/note_model.dart';
 import 'package:todo1/views/edit_note_view.dart';
 
@@ -40,6 +42,7 @@ final NoteModel note;
               trailing: IconButton(
                 onPressed: () {
                   note.delete();
+                  BlocProvider.of<NoteCubit>(context).fetchNotes();
                 },
                 icon: const Icon(Icons.delete),
                 color: Colors.black,
