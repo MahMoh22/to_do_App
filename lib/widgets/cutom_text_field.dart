@@ -4,15 +4,16 @@ import 'package:todo1/constants.dart';
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
       {super.key,
-      required this.hint,
+      this.hint,
       this.maxLines = 1,
-      required this.onSaved});
-  final String hint;
+      this.onSaved, this.initValue});
+  final String? hint;
   final int maxLines;
   final void Function(String?)? onSaved;
+  final String? initValue;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextFormField(initialValue: initValue,
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return "field is required";
