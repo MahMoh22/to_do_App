@@ -58,8 +58,12 @@ class _NoteInputFormState extends State<NoteInputForm> {
                     date: DateTime.now().toString(),
                     color: 1);
                 BlocProvider.of<AddNoteCubitCubit>(context).addNote(noteModel);
+                
               } else {
                 autovalidateMode = AutovalidateMode.always;
+                setState(() {
+                  
+                });
               }
             },
           )
