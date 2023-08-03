@@ -38,7 +38,9 @@ final NoteModel note;
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                },
                 icon: const Icon(Icons.delete),
                 color: Colors.black,
               ),
@@ -46,7 +48,7 @@ final NoteModel note;
             Padding(
               padding: const EdgeInsets.only(right: 24),
               child: Text(
-                '31/7/2023',
+                note.date,
                 style: TextStyle(
                     color: Colors.black.withOpacity(.5), fontSize: 16),
               ),

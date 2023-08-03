@@ -4,6 +4,7 @@ import 'package:todo1/cubits/add_note_cubit/add_note_cubit_cubit.dart';
 import 'package:todo1/models/note_model.dart';
 import 'package:todo1/widgets/custom_button.dart';
 import 'package:todo1/widgets/cutom_text_field.dart';
+import 'package:intl/intl.dart';
 
 class NoteInputForm extends StatefulWidget {
   const NoteInputForm({
@@ -55,15 +56,12 @@ class _NoteInputFormState extends State<NoteInputForm> {
                 NoteModel noteModel = NoteModel(
                     title: title!,
                     subTitle: subtitle!,
-                    date: DateTime.now().toString(),
+                    date: DateFormat.yMMMMd().format(DateTime.now()),
                     color: 1);
                 BlocProvider.of<AddNoteCubitCubit>(context).addNote(noteModel);
-                
               } else {
                 autovalidateMode = AutovalidateMode.always;
-                setState(() {
-                  
-                });
+                setState(() {});
               }
             },
           )
