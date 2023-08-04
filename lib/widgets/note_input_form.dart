@@ -63,7 +63,7 @@ class _NoteInputFormState extends State<NoteInputForm> {
                     title: title!,
                     subTitle: subtitle!,
                     date: DateFormat.yMMMMd().format(DateTime.now()),
-                    color: 1);
+                    color: BlocProvider.of<AddNoteCubitCubit>(context).color);
                 BlocProvider.of<AddNoteCubitCubit>(context).addNote(noteModel);
                 BlocProvider.of<NoteCubit>(context).fetchNotes();
               } else {

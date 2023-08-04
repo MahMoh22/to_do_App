@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo1/cubits/add_note_cubit/add_note_cubit_cubit.dart';
 import 'package:todo1/cubits/note_cubit/note_cubit.dart';
 import 'package:todo1/models/note_model.dart';
 import 'package:todo1/views/edit_note_view.dart';
@@ -20,7 +21,7 @@ final NoteModel note;
       child: Container(
         padding: const EdgeInsets.only(left: 16, top: 16, bottom: 16),
         decoration: BoxDecoration(
-          color: const Color(0xffFFCC80),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
