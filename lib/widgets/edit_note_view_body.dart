@@ -6,21 +6,22 @@ import 'package:todo1/models/note_model.dart';
 import 'package:todo1/widgets/custom_appbar.dart';
 
 import 'package:todo1/widgets/cutom_text_field.dart';
+import 'package:todo1/widgets/edite_notes_color_list_view.dart';
 
 class EditNoteViewBody extends StatefulWidget {
-  EditNoteViewBody({super.key, required this.note});
-final NoteModel note;
+  const EditNoteViewBody({super.key, required this.note});
+  final NoteModel note;
 
   @override
   State<EditNoteViewBody> createState() => _EditNoteViewBodyState();
 }
 
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
-final GlobalKey<FormState> formKey =GlobalKey();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
+    AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -31,30 +32,29 @@ final GlobalKey<FormState> formKey =GlobalKey();
             children: [
               CustomAppBar(
                 onPressed: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                
-                BlocProvider.of<NoteCubit>(context).fetchNotes();
-                Navigator.pop(context);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
-            },
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+
+                    BlocProvider.of<NoteCubit>(context).fetchNotes();
+                    Navigator.pop(context);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
                 title: 'Edit Note',
-                icon: Icon(Icons.check),
+                icon: const Icon(Icons.check),
               ),
               const SizedBox(
                 height: 20,
               ),
               CustomTextField(
-              initValue: widget.note.title,
-              onSaved: (value) {
-                if(value !=null && value.isNotEmpty){
-                  widget.note.title = value;
-                }
-              },
-                
+                initValue: widget.note.title,
+                onSaved: (value) {
+                  if (value != null && value.isNotEmpty) {
+                    widget.note.title = value;
+                  }
+                },
               ),
               const SizedBox(
                 height: 20,
@@ -62,16 +62,16 @@ final GlobalKey<FormState> formKey =GlobalKey();
               CustomTextField(
                 initValue: widget.note.subTitle,
                 onSaved: (value) {
-                if(value !=null && value.isNotEmpty){
-                  widget.note.subTitle = value;
-                }
-              },
+                  if (value != null && value.isNotEmpty) {
+                    widget.note.subTitle = value;
+                  }
+                },
                 maxLines: 5,
               ),
               const SizedBox(
                 height: 50,
               ),
-              
+              EditNotesColorsListView(note: widget.note)
             ],
           ),
         ),

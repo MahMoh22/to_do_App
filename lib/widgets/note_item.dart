@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo1/cubits/add_note_cubit/add_note_cubit_cubit.dart';
 import 'package:todo1/cubits/note_cubit/note_cubit.dart';
 import 'package:todo1/models/note_model.dart';
 import 'package:todo1/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key, required this.note});
-final NoteModel note;
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return EditNoteView(note: note,);
+            return EditNoteView(
+              note: note,
+            );
           },
         ));
       },
@@ -28,7 +29,7 @@ final NoteModel note;
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title:  Text(
+              title: Text(
                 note.title,
                 style: const TextStyle(color: Colors.black, fontSize: 20),
               ),

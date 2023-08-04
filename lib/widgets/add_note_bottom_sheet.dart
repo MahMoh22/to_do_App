@@ -12,11 +12,14 @@ class AddNoteBottomSheet extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => AddNoteCubitCubit(),
       child: Padding(
-          padding: EdgeInsets.only(left: 16,right: 16,bottom: MediaQuery.of(context).viewInsets.bottom),
+          padding: EdgeInsets.only(
+              left: 16,
+              right: 16,
+              bottom: MediaQuery.of(context).viewInsets.bottom),
           child: BlocConsumer<AddNoteCubitCubit, AddNoteCubitState>(
             listener: (context, state) {
               if (state is AddNoteCubitFailure) {
-                print('failed ${state.errMessage}');
+                SnackBar(content: Text('failed ${state.errMessage}'));
               }
               if (state is AddNoteCubitSucess) {
                 Navigator.pop(context);

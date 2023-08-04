@@ -25,13 +25,11 @@ class _NotesViewBodyState extends State<NotesViewBody> {
       child: Column(
         children: [
           CustomAppBar(
-            onPressed: () {
-              
-            },
+            onPressed: () {},
             title: 'Notes',
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           ),
-          NotesListView(),
+          const NotesListView(),
         ],
       ),
     );

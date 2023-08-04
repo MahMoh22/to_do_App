@@ -16,7 +16,6 @@ class SearchIcon extends StatelessWidget {
       child: IconButton(
         onPressed: onPressed,
         icon: icon,
-
         iconSize: 32,
       ),
     );
