@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo1/cubits/add_note_cubit/add_note_cubit_cubit.dart';
 import 'package:todo1/cubits/note_cubit/note_cubit.dart';
 import 'package:todo1/models/note_model.dart';
+import 'package:todo1/widgets/colors_list_view.dart';
 import 'package:todo1/widgets/custom_button.dart';
 import 'package:todo1/widgets/cutom_text_field.dart';
 import 'package:intl/intl.dart';
@@ -47,7 +48,11 @@ class _NoteInputFormState extends State<NoteInputForm> {
             maxLines: 5,
           ),
           const SizedBox(
-            height: 50,
+            height: 20,
+          ),
+          const ColorsListView(),
+          const SizedBox(
+            height: 20,
           ),
           CustomButton(
             title: 'Add',
